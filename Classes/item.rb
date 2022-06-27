@@ -21,4 +21,3 @@ class Item
     @archive = can_be_archived?
   end
 end
-
