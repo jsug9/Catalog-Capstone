@@ -11,7 +11,7 @@ class ShowLists
 
   def list_all_genres(genres)
     genres.each do |genre|
-      puts "Genre: #{genre.name}"
+      puts genre.name
     end
   end
 end

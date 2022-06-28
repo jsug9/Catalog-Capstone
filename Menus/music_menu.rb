@@ -1,9 +1,13 @@
 require './MenuActions/show_lists'
 require './MenuActions/create_music_album'
+require './DataManagers/music_albums_data'
+require './DataManagers/genres_data'
 
 class MusicMenu
+  include MusicAlbumsData
+
   def initialize
-    @music_albums = []
+    @music_albums = load_music_albums
     @status = true
     @welcome_message = [
       'Welcome to the music menu!',
@@ -32,7 +36,9 @@ class MusicMenu
       when '1' then ShowLists.new.list_all_music_albums(@music_albums)
       when '2' then ShowLists.new.list_all_genres(genres_getter)
       when '3' then CreateMusicAlbum.new.create_music_album(@music_albums)
-      when '4' then @status = false
+      when '4'
+        save_music_albums
+        @status = false
       else
         puts "Sorry, you choose a wrong option\n "
       end
