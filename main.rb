@@ -1,32 +1,30 @@
+require './Menus/music_menu'
+require './Menus/book_menu'
+require './Menus/game_menu'
+
 class Main
   def initialize
     @status = true
     @welcome_message = [
-      "Welcome to the catalog app!\n ",
+      "Welcome to the catalog app!\n",
       'Please choose an option by entering a number:',
-      '1 - Option 1',
-      '2 - Option 2',
-      '3 - Option 3',
-      '4 - Option 4',
-      '5 - Option 5',
-      '6 - Option 6',
-      '7 - Exit'
+      '1 - Book Menu',
+      '2 - Music Menu',
+      '3 - Games Menu',
+      '4 - Exit'
     ]
   end
 
-  def run # rubocop:disable Metrics/CyclomaticComplexity
+  def run
     while @status
       @welcome_message.each { |i| puts i }
       option = gets.chomp
 
       case option
-      when '1' then puts 1
-      when '2' then puts 2
-      when '3' then puts 3
-      when '4' then puts 4
-      when '5' then puts 5
-      when '6' then puts 6
-      when '7'
+      when '1' then BookMenu.new.run
+      when '2' then MusicMenu.new.run
+      when '3' then GameMenu.new.run
+      when '4'
         puts "Thank you for using this app!\n "
         @status = false
       else
