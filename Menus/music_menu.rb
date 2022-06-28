@@ -4,9 +4,9 @@ class MusicMenu
     @welcome_message = [
       'Welcome to the music menu!',
       'Please choose an option by entering a number:',
-      '1 - Option 1',
-      '2 - Option 2',
-      '3 - Option 3',
+      '1 - List all music albums',
+      '2 - List all genres (e.g \'Comedy\', \'Thriller\')',
+      '3 - Add a new music album',
       '4 - Return to main menu'
     ]
   end
