@@ -6,7 +6,12 @@ class label
         @id = SecureRandom.uuid
         @title = title
         @color = color
-        @item = []
+        @items = []
+    end
+
+    def add_item(item)
+        @items << item unless @items.inclue?(item)
+        item.label(self)
     end
 
 end
