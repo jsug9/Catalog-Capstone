@@ -1,3 +1,4 @@
+require 'date'
 require 'securerandom'
 
 class Item
@@ -5,16 +6,18 @@ class Item
 
   def initialize(publish_date)
     @id = SecureRandom.uuid
-    @publish_date = publish_date
+    @publish_date = Date.parse(publish_date)
     @archived = false
   end
 
   def can_be_archived?
-    @publish_date > 10
+    current_year = Date.today.year
+    difference = current_year - @publish_date.year
+    difference >= 10
   end
 
   def move_to_archive
-    @archive = can_be_archived?
+    @archived = can_be_archived?
   end
 
   def add_genre(genre)
