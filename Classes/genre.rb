@@ -2,7 +2,7 @@ require 'securerandom'
 require_relative 'item'
 
 class Genre
-attr_accessor :id, :name, :items
+  attr_accessor :id, :name, :items
 
   def initialize(name)
     @id = SecureRandom.uuid
