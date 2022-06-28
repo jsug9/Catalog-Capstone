@@ -2,7 +2,7 @@ require 'securerandom'
 class Label
   attr_accessor :title, :color
 
-  def initialize(_id, title, color)
+  def initialize(title, color)
     @id = SecureRandom.uuid
     @title = title
     @color = color
@@ -10,7 +10,7 @@ class Label
   end
 
   def add_item(item)
-    @items << item unless @items.inclue?(item)
-    item.label(self)
+    @items << item unless @items.include?(item)
+    item.label(self) unless item.label == self
   end
 end
