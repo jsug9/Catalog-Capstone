@@ -1,14 +1,16 @@
+require 'date'
 require './Classes/item'
 
 describe Item do
-  let(:item) { Item.new(12) }
+  date = '1999-01-25'
+  let(:item) { Item.new(date) }
 
   it 'should be an instance of Item' do
     expect(item).to be_an_instance_of(Item)
   end
 
   it 'should be initialized with a publish date' do
-    expect(item.publish_date).to eq(12)
+    expect(item.publish_date).to eq(Date.parse(date))
   end
 
   it 'should be initialized with an id' do

@@ -1,14 +1,16 @@
+require 'date'
 require './Classes/music_album'
 
 describe MusicAlbum do
-  let(:music_album) { MusicAlbum.new(12, true) }
+  date = '1999-01-25'
+  let(:music_album) { MusicAlbum.new(date, true) }
 
   it 'should be an instance of MusicAlbum' do
     expect(music_album).to be_an_instance_of(MusicAlbum)
   end
 
   it 'should be initialized with a publish date' do
-    expect(music_album.publish_date).to eq(12)
+    expect(music_album.publish_date).to eq(Date.parse(date))
   end
 
   it 'should be initialized with a on_spotify property' do
