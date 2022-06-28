@@ -1,5 +1,9 @@
+require './MenuActions/show_lists'
+require './MenuActions/create_music_album'
+
 class MusicMenu
   def initialize
+    @music_albums = []
     @status = true
     @welcome_message = [
       'Welcome to the music menu!',
@@ -11,15 +15,23 @@ class MusicMenu
     ]
   end
 
+  def get_genres
+    genres = []
+    @music_albums.each do |music_album|
+      genres << music_album.genre
+    end
+    genres.uniq
+  end
+
   def run
     while @status
       @welcome_message.each { |i| puts i }
       option = gets.chomp
 
       case option
-      when '1' then puts 1
-      when '2' then puts 2
-      when '3' then puts 3
+      when '1' then ShowLists.new.list_all_music_albums(@music_albums)
+      when '2' then ShowLists.new.list_all_genres(get_genres)
+      when '3' then CreateMusicAlbum.new.create_music_album(@music_albums)
       when '4' then @status = false
       else
         puts "Sorry, you choose a wrong option\n "
