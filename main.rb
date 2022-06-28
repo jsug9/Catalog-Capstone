@@ -36,10 +36,3 @@ end
 
 main = Main.new
 main.run
-
-# @books = []
-# @labels = []
-# @music_albums = []
-# @genres = []
-# @games = []
-# @authors = []

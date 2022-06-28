@@ -15,7 +15,7 @@ class MusicMenu
     ]
   end
 
-  def get_genres
+  def genres_getter
     genres = []
     @music_albums.each do |music_album|
       genres << music_album.genre
@@ -30,7 +30,7 @@ class MusicMenu
 
       case option
       when '1' then ShowLists.new.list_all_music_albums(@music_albums)
-      when '2' then ShowLists.new.list_all_genres(get_genres)
+      when '2' then ShowLists.new.list_all_genres(genres_getter)
       when '3' then CreateMusicAlbum.new.create_music_album(@music_albums)
       when '4' then @status = false
       else
