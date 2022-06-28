@@ -1,7 +1,6 @@
 require './MenuActions/show_lists'
 require './MenuActions/create_music_album'
 require './DataManagers/music_albums_data'
-require './DataManagers/genres_data'
 
 class MusicMenu
   include MusicAlbumsData
