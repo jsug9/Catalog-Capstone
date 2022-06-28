@@ -2,7 +2,7 @@ require './MenuActions/show_lists'
 
 class GameMenu
   def initialize
-    @games = load_games
+    # @games = load_games
     @status = true
     @welcome_message = [
       'Welcome to the game menu!',
