@@ -1,4 +1,5 @@
 require './Classes/genre'
+require './Classes/item'
 
 describe Genre do
   let(:genre) { Genre.new('Rock') }
@@ -17,5 +18,11 @@ describe Genre do
 
   it 'should be initialized with an empty array of items' do
     expect(genre.items).to eq([])
+  end
+
+  it 'should be able to add an item' do
+    item = Item.new('2018-01-01')
+    genre.add_item(item)
+    expect(genre.items).to eq([item])
   end
 end
