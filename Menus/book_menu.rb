@@ -1,9 +1,10 @@
 require './MenuActions/add_book'
-require './MenuActions/show_book_list'
+require './MenuActions/show_lists'
 require './DataManagers/book_data'
 
 class BookMenu
   include BookData
+
   def initialize
     @books = load_book_data
     @status = true
@@ -31,8 +32,8 @@ class BookMenu
       option = gets.chomp
 
       case option
-      when '1' then ShowBookList.new.list_all_book(@books)
-      when '2' then ShowBookList.new.list_labels(label_getter)
+      when '1' then ShowLists.new.list_all_book(@books)
+      when '2' then ShowLists.new.list_labels(label_getter)
       when '3' then AddBook.new.add_book(@books)
       when '4'
         save_book_data

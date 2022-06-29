@@ -3,6 +3,19 @@ class ShowLists
     "On Spotify: #{music_album.on_spotify ? 'Yes' : 'No'}"
   end
 
+  def list_all_book(books)
+    books.each do |book|
+      puts "Publisher: #{book.publisher} \nCover State: #{book.cover_state} "
+      puts "Published Date: #{book.publish_date} \nTitle: #{book.label.title} \nColor: #{book.label.color}\n\n"
+    end
+  end
+
+  def list_labels(labels)
+    labels.each do |label|
+      puts "Title: #{label.title} Color: #{label.color}"
+    end
+  end
+
   def list_all_music_albums(music_albums)
     music_albums.each do |music_album|
       puts "Published in: #{music_album.publish_date}, #{on_spotify?(music_album)}, Genre: #{music_album.genre.name}"
