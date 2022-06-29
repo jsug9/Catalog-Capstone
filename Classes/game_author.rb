@@ -1,17 +1,17 @@
 require 'securerandom'
 require_relative 'item'
-class Label
-  attr_accessor :title, :color, :items
 
-  def initialize(title, color)
+class Author
+  attr_accessor :id, :name, :items
+
+  def initialize(name)
     @id = SecureRandom.uuid
-    @title = title
-    @color = color
+    @name = name
     @items = []
   end
 
   def add_item(item)
     @items << item unless @items.include?(item)
-    item.add_label(self)
+    item.add_genre(self)
   end
 end

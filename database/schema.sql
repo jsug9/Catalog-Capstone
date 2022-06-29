@@ -24,6 +24,7 @@ CREATE TABLE music_albums (
     on_spotify boolean
 );
 
+
 --Lable Table
 CREATE TABLE label(
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -44,3 +45,20 @@ CREATE TABLE book(
   FOREIGN KEY (author_id) REFERENCES author(id) ON DELETE SET NULL ON UPDATE CASCADE,
   FOREIGN KEY (label_id) REFERENCES label(id) ON DELETE SET NULL ON UPDATE CASCADE
 );
+
+CREATE TABLE author (
+  id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  first_name varchar(100),
+  last_name varchar(100)
+);
+
+CREATE TABLE game (
+  id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  multiplayer boolean,
+  last_played_at date,
+  publish_date date,
+  author_id int,
+  gamename text
+  FOREIGN KEY (author_id) REFERENCES author(id) ON DELETE SET NULL ON UPDATE CASCADE,
+);
+
