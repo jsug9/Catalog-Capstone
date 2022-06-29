@@ -6,8 +6,6 @@ CREATE TABLE genres (
     name text
 );
 
-CREATE UNIQUE INDEX item_pkey ON item(id int4_ops);
-
 -- Label Table
 CREATE TABLE label(
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -15,17 +13,14 @@ CREATE TABLE label(
   color VARCHAR(100)
 );
 
-CREATE UNIQUE INDEX genres_pkey ON genres(id int4_ops);
-
--- Author
+-- Author Table
 CREATE TABLE author (
   id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   first_name varchar(100),
   last_name varchar(100)
 );
 
-CREATE UNIQUE INDEX author_pkey ON author(id int4_ops);
-
+-- Item Table
 CREATE TABLE item (
     id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     genre_id integer REFERENCES genres(id),
@@ -35,6 +30,7 @@ CREATE TABLE item (
     archived boolean
 );
 
+-- Music Albums table
 CREATE TABLE music_albums (
     id integer REFERENCES item(id),
     name text,
@@ -47,17 +43,15 @@ CREATE TABLE book(
   publish_date DATE,
   publisher VARCHAR(100),
   cover_state VARCHAR(10),
-  label_id INT,
-  FOREIGN KEY (label_id) REFERENCES label(id) ON DELETE SET NULL ON UPDATE CASCADE
+  label_id INT
 );
 
+-- Game Table
 CREATE TABLE game (
-  id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  id integer REFERENCES item(id),
   multiplayer boolean,
   last_played_at date,
   publish_date date,
   author_id int,
   gamename text
-  FOREIGN KEY (author_id) REFERENCES author(id) ON DELETE SET NULL ON UPDATE CASCADE,
 );
-
