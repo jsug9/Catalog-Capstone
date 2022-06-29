@@ -1,7 +1,7 @@
 require 'securerandom'
 require_relative 'item'
 
-class Genre
+class Author
   attr_accessor :id, :name, :items
 
   def initialize(name)

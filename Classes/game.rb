@@ -1,12 +1,13 @@
 require_relative './item'
 
 class Game < Item
-  attr_accessor :multiplayer, :last_played_at
+  attr_accessor :multiplayer, :last_played_at, :name
 
-  def initialize(id, publish_date, multiplayer, last_played_at)
-    super(id, publish_date)
+  def initialize(publish_date, multiplayer, last_played_at, name)
+    super(publish_date)
     @multiplayer = multiplayer
     @last_played_at = last_played_at
+    @name = name
   end
 
   def can_be_archieved?
