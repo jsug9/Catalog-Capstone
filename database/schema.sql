@@ -23,3 +23,19 @@ CREATE TABLE music_albums (
     name text,
     on_spotify boolean
 );
+
+CREATE TABLE author (
+  id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  first_name varchar(100),
+  last_name varchar(100)
+);
+
+CREATE TABLE game (
+  id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  multiplayer boolean,
+  last_played_at date,
+  publish_date date,
+  author_id int,
+  gamename text
+  FOREIGN KEY (author_id) REFERENCES author(id) ON DELETE SET NULL ON UPDATE CASCADE,
+);
