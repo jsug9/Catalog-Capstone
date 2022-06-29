@@ -1,6 +1,7 @@
 require 'securerandom'
+require_relative 'item'
 class Label
-  attr_accessor :title, :color
+  attr_accessor :title, :color, :items
 
   def initialize(title, color)
     @id = SecureRandom.uuid
@@ -11,6 +12,6 @@ class Label
 
   def add_item(item)
     @items << item unless @items.include?(item)
-    item.label(self) unless item.label == self
+    item.add_label(self)
   end
 end
