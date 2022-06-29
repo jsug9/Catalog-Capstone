@@ -14,4 +14,20 @@ class ShowLists
       puts genre.name
     end
   end
+
+  def multiplayer?(game)
+    "Multiplayer: #{game.multiplayer ? 'Yes' : 'No'}"
+  end
+
+  def list_all_games(games)
+    games.each do |game|
+      puts "Name: #{game.name}, #{multiplayer?(game)}, Author: #{game.author.name}, Last played: #{game.last_played_at}"
+    end
+  end
+
+  def list_game_authors(authors)
+    authors.each do |author|
+      puts author.name
+    end
+  end
 end
