@@ -1,8 +1,12 @@
 require './MenuActions/show_lists'
+require './MenuActions/create_game'
+require './DataManagers/games_data'
 
 class GameMenu
   def initialize
-    # @games = load_games
+    include GamesData
+
+    @games = load_games
     @status = true
     @welcome_message = [
       'Welcome to the game menu!',

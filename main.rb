@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require './Menus/music_menu'
 require './Menus/book_menu'
 require './Menus/game_menu'

@@ -15,13 +15,13 @@ class ShowLists
     end
   end
 
-  def is_multiplayer?(game)
-    "Multiplayer: #{game.is_multiplayer ? 'Yes' : 'No'}"
+  def multiplayer?(game)
+    "Multiplayer: #{game.multiplayer ? 'Yes' : 'No'}"
   end
 
   def list_all_games(games)
     games.each do |game|
-      puts "Name: #{game.game_name}, #{is_multiplayer?(game)}, Genre: #{game.genre.name}, Last played: #{game.last_played_at}"
+      puts "Name: #{game.name}, #{multiplayer?(game)}, Genre: #{game.genre.name}, Last played: #{game.last_played_at}"
     end
   end
 
