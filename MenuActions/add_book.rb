@@ -2,7 +2,6 @@ require './Classes/book'
 require './Classes/label'
 
 class AddBook
-  
   def publisher_getter
     print('Enter the Publisher: ')
     gets.chomp

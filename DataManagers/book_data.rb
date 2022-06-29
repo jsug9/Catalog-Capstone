@@ -18,7 +18,8 @@ module BookData
   def save_book_data
     data = []
     @books.each do |book|
-      data << { publisher: book.publisher, cover_state: book.cover_state, publish_date: book.publish_date, title: book.label.title, color: book.label.color }
+      data << { publisher: book.publisher, cover_state: book.cover_state, publish_date: book.publish_date,
+                title: book.label.title, color: book.label.color }
     end
     File.write('./data/book_data.json', JSON.generate(data))
   end
