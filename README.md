@@ -18,6 +18,9 @@ To get a local copy of the project, follow these steps:
 ruby main.rb
 ```
 
+## Live Presentation
+
+To watch our live presentation click [here](https://drive.google.com/file/d/1TV8CuMbLRQQpGGmzervuPZgQz8MEq-WJ/view?usp=sharing)
 
 ## Authors
 
